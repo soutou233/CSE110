@@ -30,16 +30,67 @@ public class Assignment5 {
                     pet2.AgeIncrease();
                     break;
                 case "c":
-                    break;
+                    if (pet3.getName() != null){
+                        System.out.println("Please type in a name.");
+                        String pet3Name = scan.nextLine();
+                        pet3.setName(pet3Name);
+
+                        System.out.println("Type in an age.");
+                        int pet3Age = scan.nextInt();
+                        scan.nextLine();
+                        pet3.setAge(pet3Age);
+                    }
+                    else {
+                        System.out.println("Sorry, the store is full.");
+                        break;
+                    }
                 case "d":
-                    break;
-                case "e":
+                    System.out.println("Type the number of the pet you would like to adopt.");
+                    System.out.println("The number is the order they appear in the list.");
+                    int petNumber = scan.nextInt();
+                    scan.nextLine();
+                    switch (petNumber){
+                        case 1:
+                            if (!pet1.getAdoptStatus()){
+                                System.out.println("You adopted Fido!");
+                                pet1.setAdopt();
+                                break;
+                            }
+                            else {
+                                System.out.println("Fido was adopted already!");
+                                break;
+                            }
+                        case 2:
+                            if (!pet2.getAdoptStatus()){
+                                System.out.println("You adopted Furball!");
+                                pet2.setAdopt();
+                                break;
+                            }
+                            else {
+                                System.out.println("Furball was adopted already!");
+                                break;
+                            }
+                        case 3:
+                            if (pet3.getName().equalsIgnoreCase(null)){
+                                System.out.println("That is not a valid pet!");
+                                break;
+                            }
+                            else if (!pet3.getAdoptStatus()){
+                                System.out.println("You adopted " + pet3.getName() + " !");
+                                pet3.setAdopt();
+                            }
+                            else {
+                                System.out.println(pet3.getName() + " was adopted already!");
+                            }
+                        default:
+                            System.out.println("That is not a valid pet!");
+                            break;
+                    }
                     break;
                 default:
                     break;
         }
         Mainmenu();
-
         }
         System.out.println("Goodbye.");
     }

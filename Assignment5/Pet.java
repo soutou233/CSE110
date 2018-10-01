@@ -33,6 +33,9 @@ public class Pet {
     }
 
     public boolean getAdoptStatus(){
+        return adopteStatus;
+    }
+    public boolean setAdopt(){
         return adopteStatus = true;
     }
 }
